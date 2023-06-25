@@ -1,0 +1,19 @@
+:root {
+  // base
+  --font-family: "Arial", sans-serif;
+  --content-width: 1440px;
+  --container-offset: 20px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --border-radius: 0 80px
+}
+@media (max-width: 767px) {
+  :root {
+    --border-radius: 0 50px
+  }
+}
+$light-blue: #92CAEA;
+$dark-blue: #46A7DF;
+$main-color: #231F20;
+$dark-green: #006422;
+$light-green: #00A351;
+$light-gray: rgba(#161A19, .4)

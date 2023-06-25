@@ -1,0 +1,32 @@
+.marquee {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #ffffff;
+  position: relative;
+  padding: 16px 0;
+  z-index: 9;
+
+  & h4 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    color: #00A351;
+    white-space: nowrap;
+
+     @media (max-width: 767px) {
+      font-size: 16px;
+    }
+  }
+
+  &-green {
+    background: #00A351;
+    margin-top: -8px;
+
+    & h4 {
+      color: #ffffff;
+    }
+  }
+}

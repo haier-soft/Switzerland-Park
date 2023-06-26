@@ -123,6 +123,12 @@ input[type=number]::-webkit-outer-spin-button {
   opacity: 1;
 }
 
+.site-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .is-hidden {
   display: none !important;
   /* stylelint-disable-line declaration-no-important */
@@ -442,11 +448,6 @@ section:not(:first-child) {
   background: -webkit-gradient(linear, left top, left bottom, from(#AEC8E9), color-stop(35.85%, #B4D0ED), color-stop(55.03%, #CFEEF5));
   background: -o-linear-gradient(top, #AEC8E9 0%, #B4D0ED 35.85%, #CFEEF5 55.03%);
   background: linear-gradient(180deg, #AEC8E9 0%, #B4D0ED 35.85%, #CFEEF5 55.03%);
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  overflow: hidden;
   position: relative;
 }
 
@@ -483,29 +484,39 @@ section:not(:first-child) {
   margin-top: 3px;
 }
 
-.intro .img {
+.intro__img {
   position: absolute;
-  right: 10%;
   bottom: 0;
   height: 100%;
-  -webkit-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: translateZ(150px);
-  transform: translateZ(150px);
+  overflow: hidden;
 }
 
-.intro .img2 {
-  position: absolute;
+.intro__img--1 {
+  right: 0;
+  width: 55%;
+}
+
+.intro__img--1 img {
+  position: relative;
+  right: 5%;
+  top: -5%;
+  width: 110%;
+  max-width: 110%;
+  height: 110%;
+  -webkit-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.intro__img--2 {
   left: 0;
-  bottom: 0;
-  height: 100%;
-  z-index: 1;
-  max-width: 120%;
   z-index: 2;
   pointer-events: none;
+}
+
+.intro__img--2 img {
+  width: 100%;
+  height: 100%;
 }
 
 .intro .container {
@@ -558,6 +569,8 @@ section:not(:first-child) {
   -webkit-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 .intro__btn:hover {
@@ -1303,6 +1316,14 @@ section:not(:first-child) {
     max-width: 991px;
   }
 
+  .intro {
+    background: url(../img/content/intro.jpg) 60%/cover no-repeat;
+  }
+
+  .intro__img {
+    display: none;
+  }
+
   .intro__cards {
     grid-template-columns: 1fr;
   }
@@ -1370,6 +1391,10 @@ section:not(:first-child) {
     position: static;
     text-align: right;
     margin-bottom: 15px;
+  }
+
+  .fancybox__footer {
+    display: none;
   }
 }
 

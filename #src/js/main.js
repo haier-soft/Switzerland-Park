@@ -42,6 +42,11 @@ Fancybox.defaults = {
   idle: false,
   compact: false,
   Hash: false,
+  Thumbs: {
+    type: 'modern',
+    autoStart: true,   // Display thumbnails on opening
+    hideOnClose: true     // Hide thumbnail grid when closing animation starts
+  },
   Toolbar: {
     display: {
       left: ["infobar"],
@@ -54,6 +59,8 @@ if (document.querySelector(".swiper-aparts")) {
   let thumbsSwiper
   let mainSwiperMob
   let mainSwiperDesk
+  Fancybox.bind('[data-fancybox="gallery"]', { 
+  });
   function mainSwiperInit() {
     if (window.innerWidth <= 991) {
       if (mainSwiperDesk) {
@@ -72,11 +79,6 @@ if (document.querySelector(".swiper-aparts")) {
           speed: 800
         })
       }
-      Fancybox.bind('[data-fancybox="gallery-mobile"]', {
-        Thumbs: {
-          showOnStart: false,
-        },
-      });
     } else {
       if (mainSwiperMob) mainSwiperMob.destroy()
       if (!mainSwiperDesk || mainSwiperDesk.destroyed) {
@@ -102,20 +104,6 @@ if (document.querySelector(".swiper-aparts")) {
           },
           speed: 300
         })
-        Fancybox.unbind('[data-fancybox="gallery-mobile"]')
-        Fancybox.bind('[data-fancybox="gallery-desktop"]', { 
-          Thumbs: {
-            type: 'modern',
-            autoStart: true,   // Display thumbnails on opening
-            hideOnClose: true     // Hide thumbnail grid when closing animation starts
-          },
-          on: {
-            close: (fancybox, slide) => {
-              mainSwiperDesk.slideTo(fancybox.getSlide().index)
-              thumbsSwiper.slideTo(fancybox.getSlide().index)
-            },
-          },
-        });
       }
     }
   }
@@ -192,21 +180,14 @@ if (inp) {
   })
 }
 
-let im = document.querySelector(".img")
-im.addEventListener("mousemove", e => {
-  let mouseX = e.pageX - im.offsetLeft - im.clientWidth / 2;
-  let mouseY = e.pageY - im.offsetTop - im.clientHeight / 2;
-  let mousePX = mouseX / im.clientWidth;
-  let mousePY =  mouseY / im.clientHeight;
-  //const rX = mousePX * 30;
-  const rX = mousePX * 20;
- // const rY = mousePY * -30;
- const rY = mousePY * -20;
-  const tX = mousePX * -40;
-  const tY = mousePY * -40;
- // im.style.transform  = `translateX(${tX}px) translateY(${tY}px) rotateY(${rX}deg) rotateX(${rY}deg) translateZ(100px)`
-  im.style.transform  = `rotateY(${rX}deg) rotateX(${rY}deg) translateZ(150px)`
+let introImg = document.querySelector(".intro__img--1 img")
+introImg.addEventListener("mousemove",(event)=> {
+  const startY = introImg.getBoundingClientRect().top + introImg.offsetHeight / 2
+  const startX = introImg.getBoundingClientRect().left + introImg.offsetWidth / 2
+  let diffX = event.clientX - startX
+  let diffY = event.clientY - startY
+  introImg.style.transform = 'translate3d('+ diffX / 25 +'px,'+ diffY / 20 +'px,0)'
 })
-im.addEventListener("mouseleave", e => {
-  im.style.transform  = `translateX(0px) translateY(0px) rotateY(0deg) rotateX(0deg) translateZ(150px)`
+introImg.addEventListener("mouseleave", () => {
+  introImg.style.transform = 'translate3d(0,0,0)'
 })

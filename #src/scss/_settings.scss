@@ -71,6 +71,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .site-container {
   // overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .is-hidden {

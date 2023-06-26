@@ -192,3 +192,21 @@ if (inp) {
   })
 }
 
+let im = document.querySelector(".img")
+im.addEventListener("mousemove", e => {
+  let mouseX = e.pageX - im.offsetLeft - im.clientWidth / 2;
+  let mouseY = e.pageY - im.offsetTop - im.clientHeight / 2;
+  let mousePX = mouseX / im.clientWidth;
+  let mousePY =  mouseY / im.clientHeight;
+  //const rX = mousePX * 30;
+  const rX = mousePX * 20;
+ // const rY = mousePY * -30;
+ const rY = mousePY * -20;
+  const tX = mousePX * -40;
+  const tY = mousePY * -40;
+ // im.style.transform  = `translateX(${tX}px) translateY(${tY}px) rotateY(${rX}deg) rotateX(${rY}deg) translateZ(100px)`
+  im.style.transform  = `rotateY(${rX}deg) rotateX(${rY}deg) translateZ(150px)`
+})
+im.addEventListener("mouseleave", e => {
+  im.style.transform  = `translateX(0px) translateY(0px) rotateY(0deg) rotateX(0deg) translateZ(150px)`
+})

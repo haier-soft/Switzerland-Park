@@ -794,7 +794,6 @@ section:not(:first-child) {
 .swiper-aparts {
   padding-left: 28px;
   background: #F3F3F3;
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -867,6 +866,7 @@ section:not(:first-child) {
   top: 40px;
   right: 40px;
   z-index: 2;
+  margin: 0;
 }
 
 .feedback {
@@ -1388,9 +1388,9 @@ section:not(:first-child) {
   }
 
   .swiper-aparts__txt {
-    position: static;
-    text-align: right;
-    margin-bottom: 15px;
+    top: 10px;
+    right: 10px;
+    font-size: 12px !important;
   }
 
   .fancybox__footer {

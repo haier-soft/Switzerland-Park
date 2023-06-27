@@ -524,7 +524,6 @@ section:not(:first-child) {
 .swiper-aparts{
   padding-left: 28px;
   background: #F3F3F3;  
-  position: relative;
   display: flex;
   align-items: center;
   border-radius: 8px;
@@ -573,6 +572,7 @@ section:not(:first-child) {
     top: 40px;
     right: 40px;
     z-index: 2;
+    margin: 0;
   }
   @media (max-width: 991px) {
     padding-left: 0;
@@ -586,9 +586,9 @@ section:not(:first-child) {
       display: none;
     }
     &__txt {
-      position: static;
-      text-align: right;
-      margin-bottom: 15px;
+      top: 10px;
+      right: 10px;
+      font-size: 12px !important;
     }
   }
 }

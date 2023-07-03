@@ -1452,10 +1452,6 @@ section:not(:first-child) {
     margin-top: 60px;
   }
 
-  .intro {
-    background-position: 50%;
-  }
-
   .intro__btn {
     font-size: 16px;
   }

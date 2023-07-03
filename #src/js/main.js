@@ -75,6 +75,7 @@ if (document.querySelector(".swiper-aparts")) {
           spaceBetween: 20,
           autoplay: {
             delay: 3500,
+            disableOnInteraction: false
           },
           speed: 800
         })
@@ -98,6 +99,7 @@ if (document.querySelector(".swiper-aparts")) {
           effect: 'fade',
           autoplay: {
             delay: 3500,
+            disableOnInteraction: false
           },
           thumbs: {
             swiper: thumbsSwiper,

@@ -117,9 +117,6 @@ section:not(:first-child) {
    }
   }
 
-   @media (max-width: 767px) {
-    background-position: 50%;
-  }
   @media (max-width: 480px) {
     h1 span {
       margin-top: 15px;

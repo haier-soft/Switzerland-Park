@@ -64,7 +64,6 @@ if (document.querySelector(".swiper-aparts")) {
   });
   function mainSwiperInit() {
     if (windowW <= 991) {
-      alert("test")
       if (mainSwiperDesk) {
         mainSwiperDesk.destroy(true,true)
         thumbsSwiper.destroy(true,true)

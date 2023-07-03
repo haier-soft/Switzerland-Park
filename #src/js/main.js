@@ -56,6 +56,18 @@ Fancybox.defaults = {
     },
   },
 }
+let mainSwiperMob2 = new Swiper(".swiper-aparts__main2", {
+  slidesPerView: 1.2,
+  slidesPerGroup: 1,
+  observer: true,
+  observeParents: true,
+  spaceBetween: 20, 
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false
+  },
+  speed: 800
+})
 if (document.querySelector(".swiper-aparts")) {
   let thumbsSwiper
   let mainSwiperMob

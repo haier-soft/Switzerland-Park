@@ -318,6 +318,13 @@ ol {
   display: flex;
 }
 
+.swiper-android .swiper-slide,
+.swiper-ios .swiper-slide,
+.swiper-wrapper {
+  -webkit-transform: translate3d(0px, 0, 0);
+  transform: translate3d(0px, 0, 0);
+}
+
 .swiper-slide {
   display: block;
   -ms-flex-negative: 0;

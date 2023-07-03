@@ -172,6 +172,18 @@ ul, ol {
           }
       }
   }
+  .invalid-feedback {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 116%;
+    color: rgb(172, 5, 5);
+    text-align: left !important;
+    margin-top: 5px;
+    margin-left: 5px;
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
   input,
   input::placeholder,
   &__placeholder {
@@ -188,6 +200,9 @@ ul, ol {
       border: 1px solid #fff;
       border-radius: 10px;
       color: $main-color;
+  }
+  input.is-invalid {
+    border: 1px solid rgb(172, 5, 5);
   }
   &__placeholder {
       padding: 16px;

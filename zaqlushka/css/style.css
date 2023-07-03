@@ -222,6 +222,16 @@ ol {
   display: none !important;
 }
 
+.form .invalid-feedback {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 116%;
+  color: #ac0505;
+  text-align: left !important;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 .form input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
@@ -260,6 +270,10 @@ ol {
   border: 1px solid #fff;
   border-radius: 10px;
   color: #231F20;
+}
+
+.form input.is-invalid {
+  border: 1px solid #ac0505;
 }
 
 .form__placeholder {
@@ -1401,6 +1415,10 @@ section:not(:first-child) {
 @media (max-width: 767px) {
   :root {
     --border-radius: 0 50px;
+  }
+
+  .form .invalid-feedback {
+    font-size: 14px;
   }
 
   .form input::-webkit-input-placeholder {

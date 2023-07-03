@@ -4,13 +4,14 @@ const feedbackModal = document.querySelector(".feedback-modal")
 const successModal = document.querySelector(".success-modal")
 const errorModal = document.querySelector(".error-modal")
 let modalAnimSpd = 500
-let paddingValue = window.innerWidth > 325 ? window.innerWidth - document.documentElement.clientWidth + 'px' : 0
+let windowW = window.innerWidth || document.documentElement.clientWidth
+let paddingValue = windowW > 325 ? windowW - document.documentElement.clientWidth + 'px' : 0
 function windoOnResize() {
-  paddingValue = window.innerWidth > 325 ? window.innerWidth - document.documentElement.clientWidth + 'px' : 0
+  windowW = window.innerWidth || document.documentElement.clientWidth
+  paddingValue = windowW > 325 ? windowW - document.documentElement.clientWidth + 'px' : 0
 }
 window.addEventListener("resize", windoOnResize)
 window.addEventListener('orientationchange', windoOnResize);
-
 function Marquee(parentSelector, speed) {
   const clone = parentSelector.innerHTML;
   const firstElement = parentSelector.children[0];
@@ -62,7 +63,7 @@ if (document.querySelector(".swiper-aparts")) {
   Fancybox.bind('[data-fancybox="gallery"]', { 
   });
   function mainSwiperInit() {
-    if (window.innerWidth <= 991) {
+    if (windowW <= 991) {
       if (mainSwiperDesk) {
         mainSwiperDesk.destroy()
         thumbsSwiper.destroy()
@@ -154,12 +155,8 @@ modal.forEach(item => {
 })
 //form onsubmit
 function formSuccess(form) {
-  form.querySelectorAll("input").forEach(inp => {
-    if (inp.type != "hidden") {
-      inp.value = ""
-    }
-  })
   form.querySelectorAll(".form__placeholder").forEach(item => item.style.display = "block")
+  form.querySelectorAll("input").forEach(item => item.classList.remove("is-invalid"));
   let modal = document.querySelector(".modal.open")
   if (modal) {
     modal.querySelector(".modal__overlay").classList.remove("open")

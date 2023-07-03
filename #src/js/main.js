@@ -64,16 +64,17 @@ if (document.querySelector(".swiper-aparts")) {
   });
   function mainSwiperInit() {
     if (windowW <= 991) {
+      alert("test")
       if (mainSwiperDesk) {
-        mainSwiperDesk.destroy()
-        thumbsSwiper.destroy()
+        mainSwiperDesk.destroy(true,true)
+        thumbsSwiper.destroy(true,true)
       }
       if (!mainSwiperMob || mainSwiperMob.destroyed) {
         mainSwiperMob = new Swiper(".swiper-aparts__main", {
           slidesPerView: 1.2,
           observer: true,
           observeParents: true,
-          spaceBetween: 20,
+          spaceBetween: 20, 
           autoplay: {
             delay: 3500,
             disableOnInteraction: false
@@ -82,7 +83,7 @@ if (document.querySelector(".swiper-aparts")) {
         })
       }
     } else {
-      if (mainSwiperMob) mainSwiperMob.destroy()
+      if (mainSwiperMob) mainSwiperMob.destroy(true,true)
       if (!mainSwiperDesk || mainSwiperDesk.destroyed) {
         thumbsSwiper = new Swiper(".swiper-aparts__thumbs", {
           slidesPerView: 4,

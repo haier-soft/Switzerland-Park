@@ -68,6 +68,29 @@ let mainSwiperMob2 = new Swiper(".swiper-aparts__main2", {
   },
   speed: 800
 })
+console.log(mainSwiperMob2)
+let mainSwiperMob3 = new Swiper(".swiper-aparts__main3", {
+  slidesPerView: 1.2,
+  slidesPerGroup: 1,
+  observer: true,
+  observeParents: true,
+  spaceBetween: 20, 
+  autoplay: {
+    delay: 3500
+  },
+  speed: 800
+})
+let mainSwiperMob4 = new Swiper(".swiper-aparts__main4", {
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  observer: true,
+  observeParents: true,
+  spaceBetween: 20, 
+  autoplay: {
+    delay: 3500
+  },
+  speed: 800
+})
 if (document.querySelector(".swiper-aparts")) {
   let thumbsSwiper
   let mainSwiperMob

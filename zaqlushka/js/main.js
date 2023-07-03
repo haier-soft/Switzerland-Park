@@ -71,6 +71,7 @@ if (document.querySelector(".swiper-aparts")) {
       if (!mainSwiperMob || mainSwiperMob.destroyed) {
         mainSwiperMob = new Swiper(".swiper-aparts__main", {
           slidesPerView: 1.2,
+          slidesPerGroup: 1,
           observer: true,
           observeParents: true,
           spaceBetween: 20, 
@@ -95,6 +96,7 @@ if (document.querySelector(".swiper-aparts")) {
         })
         mainSwiperDesk = new Swiper(".swiper-aparts__main", {
           slidesPerView: 1,
+          slidesPerGroup: 1,
           observer: true,
           observeParents: true,
           effect: 'fade',

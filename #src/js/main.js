@@ -9,6 +9,8 @@ let paddingValue = windowW > 325 ? windowW - document.documentElement.clientWidt
 function windoOnResize() {
   windowW = window.innerWidth || document.documentElement.clientWidth
   paddingValue = windowW > 325 ? windowW - document.documentElement.clientWidth + 'px' : 0
+  mainSwiperInit()
+  mainSwiperInits()
 }
 window.addEventListener("resize", windoOnResize)
 window.addEventListener('orientationchange', windoOnResize);
@@ -56,141 +58,137 @@ Fancybox.defaults = {
     },
   },
 }
-
+let thumbsSwiper
+let mainSwiperMob
+let mainSwiperDesk
+let mainSwiperMobInit = false
+let mainSwiperDeskInit = false
+function mainSwiperInit() {
+  if (windowW <= 991) {
+    if (mainSwiperDeskInit) {
+      mainSwiperDesk.destroy()
+      thumbsSwiper.destroy()
+      mainSwiperDeskInit = false
+    }
+    if (!mainSwiperMobInit) {
+      mainSwiperMob = new Swiper(".swiper-aparts__main", {
+        slidesPerView: 1.2,
+        slidesPerGroup: 1,
+        observer: true,
+        observeParents: true,
+        spaceBetween: 20, 
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
+        speed: 800
+      })
+      mainSwiperMobInit = true
+    }
+  } else {
+    if (mainSwiperMobInit) {
+      mainSwiperMob.destroy()
+      mainSwiperMobInit = false
+    }
+    if (!mainSwiperDeskInit) {
+      thumbsSwiper = new Swiper(".swiper-aparts__thumbs", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        direction: 'vertical',
+        observer: true,
+        observeParents: true,
+        freeMode: true,
+        speed: 800,
+      })
+      mainSwiperDesk = new Swiper(".swiper-aparts__main", {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        observer: true,
+        observeParents: true,
+        effect: 'fade',
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
+        speed: 300
+      })
+      mainSwiperDeskInit = true
+      console.log(mainSwiperDesk)
+    }
+  }
+}
 if (document.querySelector(".swiper-aparts")) {
-  let thumbsSwiper
-  let mainSwiperMob
-  let mainSwiperDesk
-  let mainSwiperMobInit = false
-  let mainSwiperDeskInit = false
   Fancybox.bind('[data-fancybox="gallery"]', { 
   });
-  function mainSwiperInit() {
-    if (windowW <= 991) {
-      if (mainSwiperDeskInit) {
-        mainSwiperDesk.destroy()
-        thumbsSwiper.destroy()
-        mainSwiperDeskInit = false
-      }
-      if (!mainSwiperMobInit) {
-        mainSwiperMob = new Swiper(".swiper-aparts__main", {
-          slidesPerView: 1.2,
-          slidesPerGroup: 1,
-          observer: true,
-          observeParents: true,
-          spaceBetween: 20, 
-          autoplay: {
-            delay: 3500,
-            disableOnInteraction: false
-          },
-          speed: 800
-        })
-        mainSwiperMobInit = true
-      }
-    } else {
-      if (mainSwiperMobInit) {
-        mainSwiperMob.destroy()
-        mainSwiperMobInit = false
-      }
-      if (!mainSwiperDeskInit) {
-        thumbsSwiper = new Swiper(".swiper-aparts__thumbs", {
-          slidesPerView: 4,
-          spaceBetween: 20,
-          direction: 'vertical',
-          observer: true,
-          observeParents: true,
-          freeMode: true,
-          speed: 800,
-        })
-        mainSwiperDesk = new Swiper(".swiper-aparts__main", {
-          slidesPerView: 1,
-          slidesPerGroup: 1,
-          observer: true,
-          observeParents: true,
-          effect: 'fade',
-          autoplay: {
-            delay: 3500,
-            disableOnInteraction: false
-          },
-          thumbs: {
-            swiper: thumbsSwiper,
-          },
-          speed: 300
-        })
-        mainSwiperDeskInit = true
-        console.log(mainSwiperDesk)
-      }
+  mainSwiperInit()
+}
+let thumbsSwipers
+let mainSwiperMobs
+let mainSwiperDesks
+let mainSwiperMobInits = false
+let mainSwiperDeskInits = false
+function mainSwiperInits() {
+  if (windowW <= 991) {
+    if (mainSwiperDeskInits) {
+      mainSwiperDesks.destroy()
+      thumbsSwipers.destroy()
+      mainSwiperDeskInits = false
+    }
+    if (!mainSwiperMobInits) {
+      mainSwiperMobInits = true
+      mainSwiperMobs = new Swiper(".swiper-apartss__main", {
+        slidesPerView: 1.2,
+        slidesPerGroup: 1,
+        observer: true,
+        observeParents: true,
+        spaceBetween: 20, 
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
+        speed: 800
+      })       
+    }
+  } else {
+    if (mainSwiperMobInits) {
+      mainSwiperMobs.destroy()
+      mainSwiperMobInits = false
+    }
+    if (!mainSwiperDeskInits) {
+      mainSwiperDeskInits = true
+      thumbsSwipers = new Swiper(".swiper-apartss__thumbs", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        direction: 'vertical',
+        observer: true,
+        observeParents: true,
+        freeMode: true,
+        speed: 800,
+      })
+      mainSwiperDesks = new Swiper(".swiper-apartss__main", {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        observer: true,
+        observeParents: true,
+        effect: 'fade',
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
+        thumbs: {
+          swiper: thumbsSwipers,
+        },
+        speed: 300
+      })
+      
     }
   }
-  mainSwiperInit()
-  window.addEventListener("resize",() => mainSwiperInit())
-  window.addEventListener("orientationchange",() => mainSwiperInit())
 }
 if (document.querySelector(".swiper-apartss")) {
-  let thumbsSwipers
-  let mainSwiperMobs
-  let mainSwiperDesks
-  let mainSwiperMobInits = false
-  let mainSwiperDeskInits = false
-  function mainSwiperInits() {
-    if (windowW <= 991) {
-      if (mainSwiperDeskInits) {
-        mainSwiperDesks.destroy()
-        thumbsSwipers.destroy()
-        mainSwiperDeskInits = false
-      }
-      if (!mainSwiperMobInits) {
-        mainSwiperMobs = new Swiper(".swiper-apartss__main", {
-          slidesPerView: 1.2,
-          slidesPerGroup: 1,
-          observer: true,
-          observeParents: true,
-          spaceBetween: 20, 
-          autoplay: {
-            delay: 3500,
-            disableOnInteraction: false
-          },
-          speed: 800
-        })
-        mainSwiperMobInits = true
-      }
-    } else {
-      if (mainSwiperMobInits) {
-        mainSwiperMobs.destroy()
-        mainSwiperMobInits = false
-      }
-      if (!mainSwiperDeskInits) {
-        thumbsSwipers = new Swiper(".swiper-apartss__thumbs", {
-          slidesPerView: 4,
-          spaceBetween: 20,
-          direction: 'vertical',
-          observer: true,
-          observeParents: true,
-          freeMode: true,
-          speed: 800,
-        })
-        mainSwiperDesks = new Swiper(".swiper-apartss__main", {
-          slidesPerView: 1,
-          slidesPerGroup: 1,
-          observer: true,
-          observeParents: true,
-          effect: 'fade',
-          autoplay: {
-            delay: 3500,
-            disableOnInteraction: false
-          },
-          thumbs: {
-            swiper: thumbsSwipers,
-          },
-          speed: 300
-        })
-        mainSwiperDeskInits = true
-      }
-    }
-  }
   mainSwiperInits()
-  window.addEventListener("resize",() => mainSwiperInits())
-  window.addEventListener("orientationchange",() => mainSwiperInits())
 }
 // show feedback modal
 modalShowBtn.forEach(btn => {

@@ -56,54 +56,23 @@ Fancybox.defaults = {
     },
   },
 }
-let mainSwiperMob2 = new Swiper(".swiper-aparts__main2", {
-  slidesPerView: 1.2,
-  slidesPerGroup: 1,
-  observer: true,
-  observeParents: true,
-  spaceBetween: 20, 
-  autoplay: {
-    delay: 3500,
-    disableOnInteraction: false
-  },
-  speed: 800
-})
-console.log(mainSwiperMob2)
-let mainSwiperMob3 = new Swiper(".swiper-aparts__main3", {
-  slidesPerView: 1.2,
-  slidesPerGroup: 1,
-  observer: true,
-  observeParents: true,
-  spaceBetween: 20, 
-  autoplay: {
-    delay: 3500
-  },
-  speed: 800
-})
-let mainSwiperMob4 = new Swiper(".swiper-aparts__main4", {
-  slidesPerView: 1,
-  slidesPerGroup: 1,
-  observer: true,
-  observeParents: true,
-  spaceBetween: 20, 
-  autoplay: {
-    delay: 3500
-  },
-  speed: 800
-})
+
 if (document.querySelector(".swiper-aparts")) {
   let thumbsSwiper
   let mainSwiperMob
   let mainSwiperDesk
+  let mainSwiperMobInit = false
+  let mainSwiperDeskInit = false
   Fancybox.bind('[data-fancybox="gallery"]', { 
   });
   function mainSwiperInit() {
     if (windowW <= 991) {
-      if (mainSwiperDesk) {
-        mainSwiperDesk.destroy(true,true)
-        thumbsSwiper.destroy(true,true)
+      if (mainSwiperDeskInit) {
+        mainSwiperDesk.destroy()
+        thumbsSwiper.destroy()
+        mainSwiperDeskInit = false
       }
-      if (!mainSwiperMob || mainSwiperMob.destroyed) {
+      if (!mainSwiperMobInit) {
         mainSwiperMob = new Swiper(".swiper-aparts__main", {
           slidesPerView: 1.2,
           slidesPerGroup: 1,
@@ -116,10 +85,14 @@ if (document.querySelector(".swiper-aparts")) {
           },
           speed: 800
         })
+        mainSwiperMobInit = true
       }
     } else {
-      if (mainSwiperMob) mainSwiperMob.destroy(true,true)
-      if (!mainSwiperDesk || mainSwiperDesk.destroyed) {
+      if (mainSwiperMobInit) {
+        mainSwiperMob.destroy()
+        mainSwiperMobInit = false
+      }
+      if (!mainSwiperDeskInit) {
         thumbsSwiper = new Swiper(".swiper-aparts__thumbs", {
           slidesPerView: 4,
           spaceBetween: 20,
@@ -144,6 +117,7 @@ if (document.querySelector(".swiper-aparts")) {
           },
           speed: 300
         })
+        mainSwiperDeskInit = true
       }
     }
   }

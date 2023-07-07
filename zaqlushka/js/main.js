@@ -10,7 +10,6 @@ function windoOnResize() {
   windowW = window.innerWidth || document.documentElement.clientWidth
   paddingValue = windowW > 325 ? windowW - document.documentElement.clientWidth + 'px' : 0
   mainSwiperInit()
-  mainSwiperInits()
 }
 window.addEventListener("resize", windoOnResize)
 window.addEventListener('orientationchange', windoOnResize);
@@ -116,7 +115,6 @@ function mainSwiperInit() {
         speed: 300
       })
       mainSwiperDeskInit = true
-      console.log(mainSwiperDesk)
     }
   }
 }
@@ -125,71 +123,7 @@ if (document.querySelector(".swiper-aparts")) {
   });
   mainSwiperInit()
 }
-let thumbsSwipers
-let mainSwiperMobs
-let mainSwiperDesks
-let mainSwiperMobInits = false
-let mainSwiperDeskInits = false
-function mainSwiperInits() {
-  if (windowW <= 991) {
-    if (mainSwiperDeskInits) {
-      mainSwiperDesks.destroy()
-      thumbsSwipers.destroy()
-      mainSwiperDeskInits = false
-    }
-    if (!mainSwiperMobInits) {
-      mainSwiperMobInits = true
-      mainSwiperMobs = new Swiper(".swiper-apartss__main", {
-        slidesPerView: 1.2,
-        slidesPerGroup: 1,
-        observer: true,
-        observeParents: true,
-        spaceBetween: 20, 
-        autoplay: {
-          delay: 3500,
-          disableOnInteraction: false
-        },
-        speed: 800
-      })       
-    }
-  } else {
-    if (mainSwiperMobInits) {
-      mainSwiperMobs.destroy()
-      mainSwiperMobInits = false
-    }
-    if (!mainSwiperDeskInits) {
-      mainSwiperDeskInits = true
-      thumbsSwipers = new Swiper(".swiper-apartss__thumbs", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        direction: 'vertical',
-        observer: true,
-        observeParents: true,
-        freeMode: true,
-        speed: 800,
-      })
-      mainSwiperDesks = new Swiper(".swiper-apartss__main", {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        observer: true,
-        observeParents: true,
-        effect: 'fade',
-        autoplay: {
-          delay: 3500,
-          disableOnInteraction: false
-        },
-        thumbs: {
-          swiper: thumbsSwipers,
-        },
-        speed: 300
-      })
-      
-    }
-  }
-}
-if (document.querySelector(".swiper-apartss")) {
-  mainSwiperInits()
-}
+
 // show feedback modal
 modalShowBtn.forEach(btn => {
   btn.addEventListener("click", e => {

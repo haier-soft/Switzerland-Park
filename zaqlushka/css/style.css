@@ -886,81 +886,6 @@ section:not(:first-child) {
   margin: 0;
 }
 
-.swiper-apartss {
-  background: #F3F3F3;
-  border-radius: 8px;
-  position: relative;
-}
-
-.swiper-apartss__main {
-  width: calc(100% - 150px);
-  margin-left: auto;
-  position: relative;
-}
-
-.swiper-apartss__main .swiper-slide {
-  padding-top: 64%;
-  background: #F3F3F3;
-  border-radius: 8px;
-}
-
-.swiper-apartss__thumbs {
-  width: 125px;
-  max-height: 348px;
-  position: absolute;
-  left: 28px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.swiper-apartss__thumbs .swiper-wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.swiper-apartss__thumbs .swiper-slide {
-  padding-top: 57.6%;
-  -ms-flex-preferred-size: 25%;
-  flex-basis: 25%;
-  background: #fff;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.swiper-apartss__thumbs .swiper-slide:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  opacity: 0;
-}
-
-.swiper-apartss__thumbs .swiper-slide.swiper-slide-thumb-active {
-  cursor: default;
-}
-
-.swiper-apartss__thumbs .swiper-slide.swiper-slide-thumb-active:after {
-  opacity: 1;
-}
-
-.swiper-apartss__txt {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  z-index: 2;
-  margin: 0;
-}
-
 .feedback {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1481,28 +1406,6 @@ section:not(:first-child) {
   }
 
   .swiper-aparts__txt {
-    top: 10px;
-    right: 10px;
-    font-size: 12px !important;
-  }
-
-  .swiper-apartss {
-    padding-left: 0;
-    background: none;
-    display: block;
-    border-radius: 0;
-  }
-
-  .swiper-apartss__main {
-    width: 100%;
-    overflow: visible;
-  }
-
-  .swiper-apartss__thumbs {
-    display: none;
-  }
-
-  .swiper-apartss__txt {
     top: 10px;
     right: 10px;
     font-size: 12px !important;
